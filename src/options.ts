@@ -9,7 +9,7 @@ interface OptionsWithHelp extends Options {
     help: boolean;
 }
 
-export function getOptions(): Options | never {
+export function get(): Options | never {
     const optionsDefenition: OptionDefinition[] = [
         {
             name: "source",

@@ -1,8 +1,8 @@
 import LinksSource from "./links-source";
-import { getOptions } from "./options";
-import { install } from "source-map-support";
+import { get as getOptions } from "./options";
+import { install as installSourceMapSupport } from "source-map-support";
 
-install();
+installSourceMapSupport();
 
 async function main(): Promise<void> {
     const options = getOptions();
