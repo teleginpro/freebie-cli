@@ -9,8 +9,8 @@ async function main(): Promise<void> {
 
     const linksSource = LinksSource.create(options.source);
 
-    while (await linksSource.canBeRead()) {
-        const link = linksSource.read();
+    let link: string | undefined;
+    while ((link = await linksSource.read()) !== undefined) {
         console.log(link);
     }
 }

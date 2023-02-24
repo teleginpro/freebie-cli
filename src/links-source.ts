@@ -1,7 +1,5 @@
 export default abstract class LinksSource {
-    public abstract canBeRead(): Promise<boolean>;
-
-    public abstract read(): Promise<string>;
+    public abstract read(): Promise<string | undefined>;
 
     public static create(sourceFile?: string): LinksSource {
         return sourceFile ? new FileLinksSource() : new TerminalLinksSource();
@@ -9,24 +7,13 @@ export default abstract class LinksSource {
 }
 
 class FileLinksSource extends LinksSource {
-    public constructor() {
-        super();
-    }
-
-    public canBeRead(): Promise<boolean> {
-        throw new Error("Method not implemented.");
-    }
-
-    public read(): Promise<string> {
+    public override read(): Promise<string | undefined> {
         throw new Error("Method not implemented.");
     }
 }
 
 class TerminalLinksSource extends LinksSource {
-    public canBeRead(): Promise<boolean> {
-        throw new Error("Method not implemented.");
-    }
-    public read(): Promise<string> {
+    public override read(): Promise<string | undefined> {
         throw new Error("Method not implemented.");
     }
 }
